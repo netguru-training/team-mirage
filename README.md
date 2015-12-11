@@ -1,6 +1,8 @@
 Team Mirage
 ================
 
+[![Join the chat at https://gitter.im/netguru-training/team-mirage](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/netguru-training/team-mirage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Heroku](https://heroku-badge.herokuapp.com/?app=team-mirage)](http://team-mirage.herokuapp.com/)
 [![Build on travis-ci](https://travis-ci.org/netguru-training/team-mirage.svg)](https://travis-ci.org/netguru-training/team-mirage)
 
