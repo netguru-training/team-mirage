@@ -1,0 +1,22 @@
+default: &default
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  pool:     5
+  username: postgres
+  template: template0
+
+development:
+  <<: *default
+  database: team-mirage_development
+  password:
+
+test:
+  <<: *default
+  database: team-mirage_test
+  password:
+
+production:
+  <<: *default
+  database: team-mirage_production
+  password:
