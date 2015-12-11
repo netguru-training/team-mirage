@@ -3,7 +3,7 @@ rvm:
   - 2.2.3
 before_script:
   - cp config/database.yml.example config/database.yml
-  - psql -c 'create database team-mirage_test;' -U postgres
+  - psql -c 'create database "team-mirage_test";' -U postgres
 addons:
   postgresql: '9.3'
 
