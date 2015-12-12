@@ -1,7 +1,20 @@
-%h2 All Projects
+%h2 Active Projects
 
+%table.table
+  %thead
+    %tr
+      %th= 'Name'
+      %th= 'Description'
+      %th= 'Goal'
+      %th= 'Current Funds'
+      %th= 'Status'
+  %tbody
+    - active_projects.each do |project|
+      %tr
+        = render project
 - if user_signed_in?
   =link_to "New Project", new_project_path, class:"btn btn-primary"
+%h2 All Projects
 
 %table.table
   %thead
