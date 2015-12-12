@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
   end
 
   def goal_range
-    if goal > 2147483647
+    if goal > 2_147_483_647
       errors.add(:goal, "We are sorry but your goal is too big")
     end
   end
