@@ -21,6 +21,7 @@ gem 'draper'
 gem 'countries'
 gem 'kaminari'
 gem 'faker'
+gem 'country_select'
 
 group :development do
   gem 'better_errors'
