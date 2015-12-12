@@ -2,8 +2,8 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :payments
 
-  validate :update_date_validate?
-  validate :date_validate?, on: :create
+  validate :update_date_validate
+  validate :date_validate, on: :create
   validate :goal_range
   validates :owner_id, presence: true
   validates :name, presence: true
@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
 
   enum status: [ :active, :succeed, :failed, :waiting ]
 
-  def date_validate?
+  def date_validate
     if setup_date < Date.today
       errors.add(:setup_date, "Project can't start in the past")
     elsif finish_date < setup_date
@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def update_date_validate?
+  def update_date_validate
       if finish_date < setup_date
         errors.add(:finish_date, "Project can't be finished before its start")
       elsif finish_date < Date.today
