@@ -1,19 +1,18 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   scope :active, -> { where(status: 'active') }
-  scope :inactive, -> { where.not(status: 'active')}
-  before_filter :authenticate_user!, except: [ :index, :show ]
-  expose(:active_projects) {Project.active}
+  scope :inactive, -> { where.not(status: 'active') }
+
+  expose(:active_projects) { Project.active }
   expose(:projects)
   expose(:project, attributes: :projects_params)
 
   def create
     project.owner = current_user
+
     if project.save
-      if project.setup_date == Date.today
-        project.active!
-      else
-        project.waiting!
-      end
+      set_project_status
       redirect_to project_path(project), notice: 'Project has been created'
     else
       render :new
@@ -43,5 +42,11 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:owner, :name, :description, :goal, :setup_date, :finish_date)
   end
 
-
+  def set_project_status
+    if project.setup_date == Date.today
+      project.active!
+    else
+      project.waiting!
+    end
+  end
 end
