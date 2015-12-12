@@ -183,6 +183,7 @@ GEM
     rake (10.4.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rolify (5.0.0)
     rspec-core (3.4.1)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -279,6 +280,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails_12factor
   rails_layout
+  rolify
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
