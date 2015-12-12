@@ -15,7 +15,18 @@ module Admin
         redirect_to admin_users_path
       else
         flash[:error] = "There were errors with creating user"
-        render :new
+        redirect_to new_admin_user_path
+      end
+    end
+
+    def update
+      self.user.update user_params
+      if user.save
+        flash[:notice] = "User updated!"
+        redirect_to admin_users_path
+      else
+        flash[:error] = "There were errors with updating user"
+        render :edit
       end
     end
 

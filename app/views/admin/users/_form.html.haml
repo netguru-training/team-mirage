@@ -1,9 +1,0 @@
-= simple_form_for(user, url: admin_users_path, method: :post,  html: { class: 'form-horizontal' }) do |f|
-  = f.input :email
-  = f.input :password
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :occupation
-  = f.input :country
-  = f.association :roles,  as: :check_boxes
-  = f.button :submit, class: 'btn btn-success'
