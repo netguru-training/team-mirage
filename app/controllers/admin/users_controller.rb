@@ -6,5 +6,6 @@ module Admin
     def index
       self.users = User.all.page params[:page]
     end
+
   end
 end
