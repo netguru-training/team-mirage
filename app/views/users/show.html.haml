@@ -17,13 +17,17 @@
       %tr
         %th Project name
         %th Project description
+        %th Current funds
         %th Project goal
+        %th Expires at
     %tbody
       -user.projects.each do |p|
         %tr
           %td=p.name
           %td=p.description
+          %td=p.current_funds
           %td=p.goal
+          %td=p.finish_date
 
 -if user.paid_projects.any?
   %h2 Your contributions
@@ -34,7 +38,7 @@
         %th Description
         %th Your contribution
     %tbody
-      -user.paid_projects.each do |p|
+      -user.paid_projects.uniq.each do |p|
         %tr
           %td=p.name
           %td=p.description

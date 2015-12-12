@@ -18,7 +18,18 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def show
+  end
+
+  def update
+    if project.save
+      redirect_to project_path(project), notice: 'Your project has been updated'
+    else
+      render :edit
+    end
   end
 
   def index

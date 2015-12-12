@@ -29,4 +29,5 @@ class Project < ActiveRecord::Base
       errors.add(:goal, "We are sorry but your goal is to big")
     end
   end
+
 end

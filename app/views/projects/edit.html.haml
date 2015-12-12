@@ -1,0 +1,6 @@
+%h1 Update your project
+=simple_form_for project do |p|
+    =p.input :name
+    =p.input :description, as: :text
+    =p.input :finish_date, as: :date, start_year: Date.today.year
+    =p.button :submit
