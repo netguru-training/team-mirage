@@ -1,2 +1,11 @@
-%h1 Projects#index
-%p Find me in app/views/projects/index.html.haml
+%h2 All Projects
+%table.table
+  %thead
+    %th= 'Name'
+    %th= 'Description'
+    %th= 'Goal'
+    %th= 'Current Funds'
+  %tbody
+    - projects.each do |project|
+      %tr
+        = render project
