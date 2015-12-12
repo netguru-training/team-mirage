@@ -3,5 +3,5 @@ class Payment < ActiveRecord::Base
   belongs_to :project
 
 
-  validate :value, presence: true
+  validates :value, presence: true
 end
