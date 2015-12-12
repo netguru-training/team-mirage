@@ -24,13 +24,13 @@
     %tbody
       -user.projects.each do |p|
         %tr
-          %td=p.name
-          %td=p.description
-          %td=p.current_funds
-          %td=p.goal
-          %td=p.finish_date
-          -if p.owner==current_user
-            %td=link_to 'Edit', edit_project_path(p)
+          %td= p.name
+          %td= p.description
+          %td= cents_to_dollars(p.current_funds)
+          %td= cents_to_dollars(p.goal)
+          %td= p.finish_date
+          -if p.owner == current_user
+            %td= link_to 'Edit', edit_project_path(p)
 
 -if user.paid_projects.any?
   %h2 Your contributions
@@ -43,6 +43,6 @@
     %tbody
       -user.paid_projects.uniq.each do |p|
         %tr
-          %td=p.name
-          %td=p.description
-          %td=p.payments.sum(:value)
+          %td= p.name
+          %td= p.description
+          %td= cents_to_dollars(p.payments.sum(:value))
