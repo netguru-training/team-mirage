@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!
   expose(:projects)
   expose(:project, attributes: :projects_params)
 
   def create
-    #project.owner = current_user
+    project.owner = current_user
     if project.save
       redirect_to project_path(project), notice: 'Project has been created'
     else
@@ -20,6 +21,6 @@ class ProjectsController < ApplicationController
   private
 
   def projects_params
-    params.require(:project).permit(:name, :description, :goal, :setup_date, :finish_date)
+    params.require(:project).permit(:owner, :name, :description, :goal, :setup_date, :finish_date)
   end
 end
