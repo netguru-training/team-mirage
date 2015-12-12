@@ -5,11 +5,12 @@
 
 %table.table
   %thead
-    %th= 'Name'
-    %th= 'Description'
-    %th= 'Goal'
-    %th= 'Current Funds'
-    %th= 'Status'
+    %tr
+      %th= 'Name'
+      %th= 'Description'
+      %th= 'Goal'
+      %th= 'Current Funds'
+      %th= 'Status'
   %tbody
     - projects.each do |project|
       %tr
