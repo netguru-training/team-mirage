@@ -4,8 +4,14 @@ class ProjectsController < ApplicationController
   expose(:project, attributes: :projects_params)
 
   def create
+
     project.owner = current_user
     if project.save
+      if project.setup_date == Date.today
+        project.active!
+      else
+        project.waiting!
+      end
       redirect_to project_path(project), notice: 'Project has been created'
     else
       render :new
