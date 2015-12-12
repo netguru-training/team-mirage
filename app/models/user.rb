@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
 
   def self.find_for_authentication(conditions)
     user = super
-    return nil if user.inactive?
+    if user
+      return nil if user.inactive?
+    end
     user
   end
 end
