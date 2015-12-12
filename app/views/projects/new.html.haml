@@ -1,9 +1,2 @@
 %h1 Add new project
-
-=simple_form_for @project do |p|
-    =p.input :name
-    =p.input :description, as: :text
-    =p.input :goal
-    =p.input :setup_date, as: :date
-    =p.input :finish_date, as: :date
-    =p.button :submit
+=render 'form'
