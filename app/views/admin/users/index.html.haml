@@ -1,7 +1,6 @@
 %h1
 .create-user-links
   = link_to "Create User", new_admin_user_path, class: 'btn btn-success'
-  = link_to "Create Admin", '#', class: 'btn btn-success'
 - if users.any?
   = page_entries_info users
   %table.table
