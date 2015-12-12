@@ -4,4 +4,6 @@ class Payment < ActiveRecord::Base
 
 
   validates :value, presence: true
+  validates :user, presence: true
+  validates :project, presence: true
 end
