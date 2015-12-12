@@ -1,4 +1,8 @@
 %h2 All Projects
+
+- if user_signed_in?
+  =link_to "New Project", new_project_path, class:"btn btn-primary"
+
 %table.table
   %thead
     %th= 'Name'
