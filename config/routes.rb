@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  namespace :admin do
+    resources :projects
+  end
 end
