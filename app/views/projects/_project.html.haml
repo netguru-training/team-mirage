@@ -1,5 +1,5 @@
 %td= link_to project.name, project
 %td= project.description
-%td= cents_to_dollars(project.goal)
-%td= cents_to_dollars(project.current_funds)
+%td= number_to_currency(project.goal)
+%td= number_to_currency(project.current_funds)
 %td= project.status.capitalize

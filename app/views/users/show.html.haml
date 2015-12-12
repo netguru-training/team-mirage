@@ -28,8 +28,8 @@
         %tr
           %td= p.name
           %td= p.description
-          %td= cents_to_dollars(p.current_funds)
-          %td= cents_to_dollars(p.goal)
+          %td= number_to_currency(p.current_funds)
+          %td= number_to_currency(p.goal)
           %td= p.finish_date
           -if p.owner == current_user
             %td= link_to 'Edit', edit_project_path(p)
@@ -47,4 +47,4 @@
         %tr
           %td= p.name
           %td= p.description
-          %td= cents_to_dollars(p.payments.sum(:value))
+          %td= number_to_currency(p.payments.sum(:value))

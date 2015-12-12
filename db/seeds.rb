@@ -33,7 +33,7 @@ admin.add_role :admin
              setup_date: Faker::Time.between(DateTime.now, 2.day.from_now),
              finish_date: Faker::Time.between(3.days.from_now, 5.days.from_now),
              owner_id: users.sample.id,
-             status: Project.statuses.values.sample
+             status: Project.statuses[:active]
   )
 end
 projects = Project.all
