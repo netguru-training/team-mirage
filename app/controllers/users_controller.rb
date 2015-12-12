@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-expose(:user)
-def show
-end
+  expose(:user)
+  def show
+  end
+
 
 end

@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  def check_if_active
+    if current_user.inactive?
+      flash[:alert] = "Your account is inactive!"
+      sign
+    end
+  end
 end

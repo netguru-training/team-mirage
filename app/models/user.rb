@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
   def inactive?
     has_role? :inactive
   end
+
+  def self.find_for_authentication(conditions)
+    user = super
+    return nil if user.inactive?
+    user
+  end
 end
