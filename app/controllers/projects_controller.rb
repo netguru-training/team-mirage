@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [ :index, :show ]
   expose(:projects)
   expose(:project, attributes: :projects_params)
 
