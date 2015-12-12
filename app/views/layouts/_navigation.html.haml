@@ -8,6 +8,8 @@
         %span.icon-bar
         %span.icon-bar
       = link_to 'Home', root_path, class: 'navbar-brand'
+      %ul.nav.navbar-nav
+        = render 'layouts/nav_links_for_all'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/nav_links_for_auth'
