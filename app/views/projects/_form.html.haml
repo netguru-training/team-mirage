@@ -2,6 +2,6 @@
     =p.input :name
     =p.input :description, as: :text
     =p.input :goal
-    =p.input :setup_date, as: :date
-    =p.input :finish_date, as: :date
+    =p.input :setup_date, as: :date, start_year: Date.today.year
+    =p.input :finish_date, as: :date, start_year: Date.today.year
     =p.button :submit
