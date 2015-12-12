@@ -1,7 +1,9 @@
 class ProjectsController < ApplicationController
+  scope :active, -> { where(status: 'active') }
+  scope :inactive, -> { where(status: !'active')}
   before_filter :authenticate_user!, except: [ :index, :show ]
-  expose(:active_projects) {Project.where(status: 'active')}
-  expose(:projects)
+  expose(:active_projects) {Project.active}
+  expose(:other_projects) {Project.inactive}
   expose(:project, attributes: :projects_params)
 
   def create
