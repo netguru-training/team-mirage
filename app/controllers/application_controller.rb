@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     other_details = [:occupation, :country]
     devise_parameter_sanitizer.for(:sign_up) << names
     devise_parameter_sanitizer.for(:account_update) << names + other_details
+  end
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
