@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
     payment.user = current_user
 
     if payment.save
-      redirect_to(project_path(project))
+      redirect_to project_path(project), notice: 'Your payment was added successfully. Thank you!'
     else
       render :new
     end
