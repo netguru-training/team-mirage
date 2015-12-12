@@ -10,4 +10,7 @@ describe User do
     expect(@user.email).to match 'user@example.com'
   end
 
+  it {is_expected.to respond_to :email}
+
+
 end
