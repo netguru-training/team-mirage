@@ -1,6 +1,7 @@
 %h3= user.decorate.full_name
 %ul.list-group
   %li.list-group-item= "Email: " + user.email
+  %li.list-group-item= "Roles: " + user.decorate.display_roles
   %li.list-group-item= "From: " + user.country
   %li.list-group-item= "Occupation: " + user.occupation
   %li.list-group-item= "Last update: " + user.updated_at.to_s
