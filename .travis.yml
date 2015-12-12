@@ -4,6 +4,15 @@ rvm:
 before_script:
 - cp config/database.yml.example config/database.yml
 - psql -c 'create database "team-mirage_test";' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: SoBRLqSNucfus80+PekznyXTKRUT+lbzJ3CEFyeyX6G9qE/kbhSzcIa1XbDZKhl+pKeAgZvT2FrPM1WSWeg8QvdUDB0HJ0zBjysF0yrlZNsvTt6sFyc7yTXoYM03vc8VLHw3V4Q+NFQcNafvt04Y/E0sVj+wiPeeDigDgVcxBG4La8eouz9Rl2d0sbxcT5gn6dHH9wpLYTntIyHfFSP0dndAzvVf5GwZqnkqMBpfHMVSuoHqv2OoAYvDTP0E6V+vQyKRuToCCA5j09lxDYmCIkiUNZhmUeyLQZpxlW+iC1IBq4vITJkbrMRa3mZIZ9v5j3BgV4SudCSmUCH1rSq1Y2wBNSev8KCSaqx2xhu0gIEBHfYMcFcVt43pXvPYuS3gdbACvOcpjQpu7l6lrtKz5zKYx6965aUjHsHn/IQgzI1EiM4ii1rbvHrBdVS74eru60TPphvPb3qq0NsjQ85X63BxTTGintwYLhez0MvFeEDm9VgkRN819qk9Hk1/xOPdupnvmfCMOu1MbsGRbxwlp/dZtB1N6srWCxzF09hgaOB0O2GCHSN/gyjirAu3WS6w4YPyu67+FbCuStSFtTLlocw98FwkC0/dwoRIJ4USZzHJx5D7BX4g8/TBsCAKup2u6DLR+rxEGoO86J1lVRWTgCoTp9Mblmypxyl0lSPao7U=
+  run:
+  - rake db:migrate
+  app: team-mirage
+  on:
+    repo: netguru-training/team-mirage
 addons:
   postgresql: '9.3'
 script: bundle exec rspec
