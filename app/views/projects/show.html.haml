@@ -10,6 +10,9 @@
     %h4= 'Currrent funds'
     %p= number_to_currency(project.current_funds)
   %div
+    %h4= 'Status'
+    %p= project.status
+  %div
     %h4= 'Payments'
     %ul
       - project.payments.each do |payment|
