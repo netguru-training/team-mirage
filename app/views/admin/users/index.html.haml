@@ -1,4 +1,7 @@
 %h1
+.create-user-links
+  = link_to "Create User", new_admin_user_path, class: 'btn btn-success'
+  = link_to "Create Admin", '#', class: 'btn btn-success'
 - if users.any?
   = page_entries_info users
   %table.table
@@ -19,6 +22,13 @@
           %td= user.country
           %td= user.updated_at
           %td= user.created_at
+          %td
+            = link_to admin_user_path(user) do
+              %span.glyphicon.glyphicon-search
+            = link_to edit_admin_user_path(user) do
+              %span.glyphicon.glyphicon-pencil
+            = link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } do
+              %span.glyphicon.glyphicon-remove
   = paginate users
 - else
   %h3 No users found :(
