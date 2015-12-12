@@ -17,6 +17,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'rolify'
 gem 'decent_exposure'
+gem 'draper'
 gem 'countries'
 
 group :development do
