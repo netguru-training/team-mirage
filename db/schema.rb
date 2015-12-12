@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212104205) do
+ActiveRecord::Schema.define(version: 20151212130730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151212104205) do
     t.datetime "setup_date"
     t.datetime "finish_date"
     t.integer  "owner_id"
+    t.integer  "status"
   end
 
   create_table "roles", force: :cascade do |t|

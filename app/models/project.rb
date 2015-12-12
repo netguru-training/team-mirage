@@ -12,7 +12,5 @@ class Project < ActiveRecord::Base
   validates :setup_date, presence: true
   validates :finish_date, presence: true
 
-  def status
-    Date.today.between?(setup_date,finish_date) ? 'Active' : 'Not active'
-  end
+  enum status: [ :active, :succeed, :failed, :waiting ]
 end
