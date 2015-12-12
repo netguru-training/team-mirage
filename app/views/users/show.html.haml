@@ -9,6 +9,8 @@
     %tr
       %td= "Total payments:"
       %td= user.payments.sum(:value)
+-if user==current_user
+  = link_to 'Edit user', edit_user_path(user), class: 'btn btn-default'
 
 -if user.projects.any?
   %h2 Your projects

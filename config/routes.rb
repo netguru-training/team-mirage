@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
 
   namespace :admin do
     resources :projects
