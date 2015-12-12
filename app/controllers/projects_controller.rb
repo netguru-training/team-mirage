@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [ :index, :show ]
-  expose(:projects)
+  expose(:projects) {Project.order('created_at DESC')}
   expose(:project, attributes: :projects_params)
 
   def create
