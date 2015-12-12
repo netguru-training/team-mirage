@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :payments, only: [:new, :create]
+  end
 
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }

@@ -5,10 +5,10 @@
     %p= project.description
   %div
     %h4= 'Goal'
-    %p= number_to_currency(project.goal)
+    %p= project.goal
   %div
     %h4= 'Currrent funds'
-    %p= number_to_currency(project.current_funds)
+    %p= project.current_funds
   %div
     %h4= 'Status'
     %p= project.status
@@ -17,7 +17,9 @@
     %ul
       - project.payments.each do |payment|
         %li
-          %span.value= number_to_currency(payment.value)
+          %span.value= payment.value
           from
           %span.contributor= payment.user.decorate.full_name
           %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
+    - if user_signed_in?
+      = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
