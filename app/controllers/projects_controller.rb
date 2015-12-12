@@ -1,10 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
-  scope :active, -> { where(status: 'active') }
-  scope :inactive, -> { where.not(status: 'active') }
-
-  expose(:active_projects) { Project.active }
   expose(:projects)
   expose(:project, attributes: :projects_params)
 

@@ -2,6 +2,9 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :payments
 
+  scope :active, -> { where(status: 'active') }
+  scope :inactive, -> { where.not(status: 'active') }
+
   validate :update_date_validate
   validate :date_validate, on: :create
   validate :goal_range
