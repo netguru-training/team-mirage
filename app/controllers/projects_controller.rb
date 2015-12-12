@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   before_filter :authenticate_user!, except: [ :index, :show ]
   expose(:active_projects) {Project.where(status: 'active')}
   expose(:projects)
@@ -26,6 +27,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+
     if project.save
       redirect_to project_path(project), notice: 'Your project has been updated'
     else
@@ -41,4 +43,6 @@ class ProjectsController < ApplicationController
   def projects_params
     params.require(:project).permit(:owner, :name, :description, :goal, :setup_date, :finish_date)
   end
+
+
 end

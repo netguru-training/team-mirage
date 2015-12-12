@@ -2,7 +2,9 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :payments
 
-  validate :date_validate?
+  validate :update_date_validate?
+
+  validate :date_validate?, on: :create
   validate :goal_range
   validates :owner_id, presence: true
   validates :name, presence: true
@@ -23,11 +25,21 @@ class Project < ActiveRecord::Base
       errors.add(:finish_date, "Project can't be finished before its start")
     end
   end
-
+  def update_date_validate?
+      if finish_date < setup_date
+        errors.add(:finish_date, "Project can't be finished before its start")
+      elsif finish_date < Date.today
+        errors.add(:finish_date, "Project can't be finished before today")
+      end
+  end
   def goal_range
     if goal > 2147483647
-      errors.add(:goal, "We are sorry but your goal is to big")
+      errors.add(:goal, "We are sorry but your goal is too big")
     end
   end
+
+
+
+
 
 end
