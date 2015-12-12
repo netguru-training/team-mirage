@@ -20,6 +20,7 @@ gem 'decent_exposure'
 gem 'draper'
 gem 'countries'
 gem 'kaminari'
+gem 'faker'
 
 group :development do
   gem 'better_errors'
@@ -35,7 +36,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'pry-inline'
   gem 'pry-rails'
   gem 'pry-rescue'
