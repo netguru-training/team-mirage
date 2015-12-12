@@ -5,7 +5,34 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
+30.times do
+  User.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: "password",
+      country: Faker::Address.country,
+      occupation: "farmer")
+end
+users = User.all
+
+users.each do |f|
+  f.add_role :regular
+end
+
+admin = User.create(first_name: "admin", last_name: "adminowski", email: "admin@admin.com",
+                    password: "adminadmin", occupation: "admin", country: "Polska" )
+admin.add_role :admin
+
+10.times do
+  Project.create!(
+             name: Faker::Lorem.word,
+             description: Faker::Lorem.sentence,
+             goal: Faker::Number.number(6),
+             current_founds: 0,
+             setup_date: Faker::Time.between(DateTime.now , DateTime.now +1),
+             finish_date: Faker::Time.between(DateTime.now +1, DateTime.now +5))
+end
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
+
