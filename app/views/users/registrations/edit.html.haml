@@ -15,6 +15,12 @@
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .form-group
+      = f.label :occupation
+      = f.text_field :occupation, class: 'form-control'
+    .form-group
+      = f.label :country
+      = f.select :country, ISO3166::Country.all_translated('EN')
     %fieldset
       %p Leave these fields blank if you don't want to change your password.
       .form-group

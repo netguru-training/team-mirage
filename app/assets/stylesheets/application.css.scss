@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.form-group {
+  > * {
+    max-width: 100%;
+  }
+}
