@@ -5,6 +5,7 @@ class Payment < ActiveRecord::Base
   validates :value, presence: true
   validates :user, presence: true
   validates :project, presence: true
+  validate :project_must_be_active
 
   after_create :increase_project_funds
 
@@ -13,5 +14,9 @@ class Payment < ActiveRecord::Base
   def increase_project_funds
     project.current_funds += value
     project.save
+  end
+
+  def project_must_be_active
+    project.active?
   end
 end

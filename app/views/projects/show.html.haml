@@ -11,7 +11,7 @@
     %p= cents_to_dollars(project.current_funds)
   %div
     %h4= 'Status'
-    %p= project.status
+    %p= project.status.capitalize
   %div
     %h4= 'Payments'
     %ul
@@ -21,7 +21,7 @@
           from
           %span.contributor= payment.user.decorate.full_name
           %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
-    - if user_signed_in?
+    - if user_signed_in? && project.active?
       = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
     -if current_user==project.owner
       = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
