@@ -1,5 +1,6 @@
 %h1
 - if users.any?
+  = page_entries_info users
   %table.table
     %thead
       %tr
@@ -18,3 +19,6 @@
           %td= user.country
           %td= user.updated_at
           %td= user.created_at
+  = paginate users
+- else
+  %h3 No users found :(

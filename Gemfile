@@ -19,6 +19,7 @@ gem 'rolify'
 gem 'decent_exposure'
 gem 'draper'
 gem 'countries'
+gem 'kaminari'
 
 group :development do
   gem 'better_errors'
