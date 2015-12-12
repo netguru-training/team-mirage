@@ -20,6 +20,7 @@
         %th Current funds
         %th Project goal
         %th Expires at
+        %th Edit
     %tbody
       -user.projects.each do |p|
         %tr
@@ -28,6 +29,8 @@
           %td=p.current_funds
           %td=p.goal
           %td=p.finish_date
+          -if p.owner==current_user
+            %td=link_to 'Edit', edit_project_path(p)
 
 -if user.paid_projects.any?
   %h2 Your contributions

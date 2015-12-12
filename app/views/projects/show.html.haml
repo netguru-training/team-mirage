@@ -23,3 +23,5 @@
           %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
     - if user_signed_in?
       = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
+    -if current_user==project.owner
+      = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
