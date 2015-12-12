@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
+  has_many :payments
 
   validates :owner, presence: true
   validates :name, presence: true
