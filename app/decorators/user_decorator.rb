@@ -6,6 +6,6 @@ class UserDecorator < Draper::Decorator
   end
 
   def display_roles
-    roles.each.map { |role| role.name }.join(' ')
+    roles.each.map { |role| role.name }.join(', ')
   end
 end
