@@ -17,6 +17,8 @@ class Payment < ActiveRecord::Base
   end
 
   def project_must_be_active
-    project.active?
+    unless project.active?
+      errors.add(:project, 'must me active')
+    end
   end
 end
