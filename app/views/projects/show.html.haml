@@ -5,10 +5,10 @@
     %p= project.description
   %div
     %h4= 'Goal'
-    %p= project.goal
+    %p= cents_to_dollars(project.goal)
   %div
     %h4= 'Currrent funds'
-    %p= project.current_funds
+    %p= cents_to_dollars(project.current_funds)
   %div
     %h4= 'Status'
     %p= project.status
@@ -17,7 +17,7 @@
     %ul
       - project.payments.each do |payment|
         %li
-          %span.value= payment.value
+          %span.value= cents_to_dollars(payment.value)
           from
           %span.contributor= payment.user.decorate.full_name
           %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"

@@ -1,4 +1,4 @@
 %td= link_to project.name, project
 %td= project.description
-%td= project.goal
-%td= project.current_funds
+%td= cents_to_dollars(project.goal)
+%td= cents_to_dollars(project.current_funds)
