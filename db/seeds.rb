@@ -30,9 +30,12 @@ admin.add_role :admin
              description: Faker::Lorem.sentence,
              goal: Faker::Number.number(6),
              current_founds: 0,
-             setup_date: Faker::Time.between(DateTime.now , DateTime.now +1),
-             finish_date: Faker::Time.between(DateTime.now +1, DateTime.now +5))
+             setup_date: Faker::Time.between(DateTime.now , DateTime.now +1.day),
+             finish_date: Faker::Time.between(DateTime.now +1.day, DateTime.now +5.day),
+             owner_id: users.sample)
 end
+
+
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 
