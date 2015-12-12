@@ -1,1 +1,20 @@
 %h1
+- if users.any?
+  %table.table
+    %thead
+      %tr
+        %th Email
+        %th Full name
+        %th Occupation
+        %th Country
+        %th Updated at
+        %th Created at
+    %tbody
+      - users.each do |user|
+        %tr
+          %td= user.email
+          %td= user.decorate.full_name
+          %td= user.occupation
+          %td= user.country
+          %td= user.updated_at
+          %td= user.created_at
