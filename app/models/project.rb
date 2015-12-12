@@ -11,4 +11,8 @@ class Project < ActiveRecord::Base
                             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :setup_date, presence: true
   validates :finish_date, presence: true
+
+  def status
+    Date.today.between?(setup_date,finish_date) ? 'Active' : 'Not active'
+  end
 end
