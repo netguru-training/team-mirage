@@ -22,6 +22,7 @@ gem 'countries'
 gem 'kaminari'
 gem 'faker'
 gem 'country_select'
+gem 'devise_invitable'
 
 group :development do
   gem 'better_errors'
