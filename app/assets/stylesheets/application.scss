@@ -2,7 +2,6 @@
   'admin',
   'comments',
   'projects';
-@impport "jquery.countdown";
 
 .form-group {
   > * {
@@ -10,8 +9,8 @@
   }
 }
 
-body {
-  padding: 0 50px;
+main {
+  padding: 0 50px 20px;
 }
 
 form {
