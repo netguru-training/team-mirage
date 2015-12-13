@@ -5,4 +5,7 @@
     = comment.user.decorate.full_name
     %i.payment-status
     = " on #{comment.created_at.strftime("%H:%M %d/%m/%Y")}"
+    - if admin_signed_in?
+      = link_to project_comment_path(project, comment), method: :delete, data: { confirm: "Are you sure?" } do
+        %span.glyphicon.glyphicon-remove
   %p= comment.body

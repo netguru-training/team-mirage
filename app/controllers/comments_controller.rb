@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    project = comment.project_id
+    comment.delete
+    redirect_to project_path project
+  end
+
   private
 
   def comment_params
