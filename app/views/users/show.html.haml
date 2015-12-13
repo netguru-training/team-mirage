@@ -9,10 +9,10 @@
     %tr
       %td= "Total payments:"
       %td= user.payments.sum(:value)
--if user == current_user
+- if current_user?(user)
   = link_to 'Edit user', edit_user_path(user), class: 'btn btn-default'
 
--if user.projects.any?
+- if user.projects.any?
   %h2 Your projects
   %table.table.table-striped
     %thead
@@ -24,17 +24,17 @@
         %th Expires at
         %th Edit
     %tbody
-      -user.projects.each do |p|
+      - user.projects.each do |p|
         %tr
           %td= p.name
           %td= p.description
           %td= number_to_currency(p.current_funds)
           %td= number_to_currency(p.goal)
           %td= p.finish_date
-          -if p.owner == current_user
+          - if current_user?(p.owner)
             %td= link_to 'Edit', edit_project_path(p)
 
--if user.paid_projects.any?
+- if user.paid_projects.any?
   %h2 Your contributions
   %table.table.table-striped
     %thead
@@ -43,7 +43,7 @@
         %th Description
         %th Your contribution
     %tbody
-      -user.paid_projects.uniq.each do |p|
+      - user.paid_projects.uniq.each do |p|
         %tr
           %td= p.name
           %td= p.description
