@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  
   def check_if_active
     sign_out if current_user.inactive?
   end
