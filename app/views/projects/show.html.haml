@@ -35,29 +35,10 @@
     = render 'project_rating'
     = link_to 'Show Payments','#collapse', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
     .payments.collapse#collapse
-      %h4= 'Payments'
-      - if project.payments.empty?
-        %p= 'Be the first one to pay for this project!'
-      - else
-        %ul
-          - project.payments.each do |payment|
-            %li
-              = render payment
-      - if user_signed_in? && project.active?
-        = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
+      = render 'project_payments'
     = link_to 'Show Comments','#collapse_comments', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse_comments"
     .comments.collapse#collapse_comments
-      %h4= 'Comments'
-      - if comments.empty?
-        %p= 'Be the first one to comment on this project!'
-      - else
-        - comments.each do |comment|
-          = render comment
-      - if user_signed_in?
-        %h5= 'Add Comment'
-        = render 'comments/form', comment: project.comments.new, project: project
-
-
+      = render 'project_comments'
 
 :javascript
   window.dataArray = #{raw @daily_payments_values.to_json}

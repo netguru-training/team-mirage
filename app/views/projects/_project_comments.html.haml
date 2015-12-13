@@ -1,0 +1,9 @@
+%h4= 'Comments'
+- if comments.empty?
+  %p= 'Be the first one to comment on this project!'
+- else
+  - comments.each do |comment|
+    = render comment
+- if user_signed_in?
+  %h5= 'Add Comment'
+  = render 'comments/form', comment: project.comments.new, project: project
