@@ -24,6 +24,7 @@ gem 'faker'
 gem 'country_select'
 gem 'devise_invitable'
 gem 'chart-js-rails'
+gem 'sendgrid'
 
 
 group :development do
