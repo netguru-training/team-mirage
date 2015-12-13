@@ -19,17 +19,17 @@ form {
 
 .navbar-default {
   background-color: $btn-primary-bg;
-  color: white;
+  color: #ffffff;
 
   .navbar-text {
-    color: white;
+    color: #ffffff;
   }
 
   .navbar-nav {
     > li {
       > a {
         color: white;
-        transition: transform 0.3s;
+        transition: transform .3s;
 
         &:hover {
           color: white;
@@ -40,3 +40,13 @@ form {
   }
 }
 
+.navbar-header {
+  .navbar-brand {
+    color: #ffffff;
+
+    &:focus,
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
