@@ -50,7 +50,7 @@
 
 
 :javascript
-  window.dataArray = #{raw @hash_values.to_json}
-  window.dataArrayAll = #{raw @hhash_values.to_json}
-  window.labelArray = #{raw @hash_labels.to_json}
-  window.limit = #{raw @hash_limit.to_json}
+  window.dataArray = #{raw @daily_payments_values.to_json}
+  window.dataArrayAll = #{raw @total_payments_values.to_json}
+  window.labelArray = #{raw @daily_payments_labels.to_json}
+  window.limit = #{raw @project_goal.to_json}

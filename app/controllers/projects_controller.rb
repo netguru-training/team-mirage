@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     daily_payments = Hash.new(0)
     total_payments = Hash.new(0)
     total_funds = 0
-    @hash_limit = {}
+    @project_goal = {}
     daily_payments[project.setup_date.strftime('%d %b %y')] = 0
     total_payments[project.setup_date.strftime('%d %b %y')] = 0
 
@@ -32,13 +32,13 @@ class ProjectsController < ApplicationController
       daily_payments[payment.created_at.strftime('%d %b %y')] += payment.value
       total_funds += payment.value
       total_payments[payment.created_at.strftime('%d %b %y')] = total_funds
-      @hash_limit[payment.created_at.strftime('%d %b %y')] = project.goal
+      @project_goal[payment.created_at.strftime('%d %b %y')] = project.goal
     end
 
-    @hash_limit[project.setup_date.strftime('%d %b %y')] = project.goal
-    @hash_labels = daily_payments.keys
-    @hash_values = daily_payments.values.map(&:to_i)
-    @hhash_values = total_payments.values.map(&:to_i)
+    @project_goal[project.setup_date.strftime('%d %b %y')] = project.goal
+    @daily_payments_labels = daily_payments.keys
+    @daily_payments_values = daily_payments.values.map(&:to_i)
+    @total_payments_values = total_payments.values.map(&:to_i)
   end
 
   def update
