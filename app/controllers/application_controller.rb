@@ -18,9 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_if_active
-    if current_user.inactive?
-      flash[:alert] = "Your account is inactive!"
-      sign
-    end
+    sign_out if current_user.inactive?
   end
 end
