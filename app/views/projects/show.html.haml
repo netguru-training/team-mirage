@@ -23,5 +23,14 @@
           %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
     - if user_signed_in? && project.active?
       = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
-    -if current_user==project.owner
+    - if current_user == project.owner
       = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
+  %div.comments
+    %h4= 'Comments'
+    - if project.comments.empty?
+      %p= 'Be the first one to comment on this project!'
+    - else
+      - project.comments.each do |comment|
+        = render comment
+    %h5= 'Add Comment'
+    = render 'comments/form', comment: project.comments.new, project: project
