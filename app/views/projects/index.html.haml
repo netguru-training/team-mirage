@@ -10,7 +10,7 @@
       %th= 'Status'
   %tbody
 
-    -active_projects.each do |project|
+    -Project.ongoing.each do |project|
       %tr
         = render project
 - if user_signed_in?
@@ -26,6 +26,6 @@
       %th= 'Current Funds'
       %th= 'Status'
   %tbody
-    -remaining_projects.each do |project|
+    -Project.remaining.all.each do |project|
       %tr
         = render project

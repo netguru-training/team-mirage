@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   scope :ongoing, -> { where(status: 'active') }
-  scope :remaining, -> { where.not(status:  'active') }  
+  scope :remaining, -> { where.not(status: 'active') }
   belongs_to :owner, class_name: "User"
   has_many :payments
   has_many :comments
@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   scope :active, -> { where(status: 'active') }
   scope :inactive, -> { where.not(status: 'active') }
 
-  validate :update_date_validate
+  validate :update_date_validate, on: :update
   validate :date_validate, on: :create
   validate :goal_range
   validates :owner_id, presence: true
