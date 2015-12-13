@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def made_payment_for?(project)
-    payments.any? { |payment| payment.project == project }
+  def made_payment_for?(project_id)
+    paid_projects.exists?(id: project_id)
   end
 
   def self.find_for_authentication(conditions)
