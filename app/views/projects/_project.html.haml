@@ -2,5 +2,5 @@
 %td= project.description
 %td= number_to_currency(project.goal)
 %td= number_to_currency(project.current_funds)
-%td= '?'
+%td= project.decorate.percent_funds_raised
 %td= project.status.capitalize
