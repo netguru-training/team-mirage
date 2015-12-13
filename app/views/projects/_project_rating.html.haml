@@ -1,4 +1,9 @@
 - if project.succeed? && user_signed_in? && project.payments.by(current_user.id).any?
   .rating
     %h4= 'Rate This Project'
-    = render 'ratings/form', rating: project.ratings.new, project: project
+    - if project.ratings.by(current_user.id).first.nil?
+      = render 'ratings/form', rating: project.ratings.new, project: project
+    - else
+      %p
+        You already rated this project:
+        = project.ratings.by(current_user.id).first.value

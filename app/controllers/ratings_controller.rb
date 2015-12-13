@@ -9,7 +9,7 @@ class RatingsController < ApplicationController
     if rating.save
       redirect_to project_path(project), notice: 'Your rating was added successfully. Thank you!'
     else
-      redirect_to project_path(project), error: 'There was something wrong with your rating.'
+      redirect_to project_path(project), alert: 'There was something wrong with your rating.'
     end
   end
 

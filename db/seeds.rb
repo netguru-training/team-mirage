@@ -70,13 +70,10 @@ projects.first.waiting!
 succeeded_project = projects.second
 succeeded_project.current_funds = succeeded_project.goal * 1.5
 succeeded_project.succeed!
-
-5.times do
-  succeeded_project.ratings.create!(
-    value: rand(10) + 1,
-    user: succeeded_project.payments.sample.user
-  )
-end
+succeeded_project.ratings.create(
+  value: rand(10) + 1,
+  user: succeeded_project.payments.first.user
+)
 
 projects.third.current_funds = projects.third.goal / 2
 projects.third.failed!
