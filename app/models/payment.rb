@@ -2,7 +2,7 @@ class Payment < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
-  scope :by, -> (user_id) { where(user_id: user_id)}
+  scope :by, -> (user_id) { where(user_id: user_id) }
 
   validates :value, presence: true, numericality: { greater_than: 0, less_than: 2_147_483_647 }
   validates :user, presence: true
