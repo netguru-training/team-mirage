@@ -4,5 +4,5 @@
   %h5{ class: 'author ' + author_class }
     = comment.user.decorate.full_name
     %i.payment-status
-    = " on #{comment.created_at.strftime("%d/%m/%Y")}"
+    = " on #{comment.created_at.strftime("%H:%M %d/%m/%Y")}"
   %p= comment.body
