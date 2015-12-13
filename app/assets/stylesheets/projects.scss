@@ -11,4 +11,32 @@
       padding-bottom: 30px;
     }
   }
+
+  .status {
+    @extend .glyphicon;
+
+    &.status-active {
+      @extend .glyphicon-refresh;
+
+      color: $alert-info-text;
+    }
+
+    &.status-failed {
+      @extend .glyphicon-remove;
+
+      color: $alert-danger-text;
+    }
+
+    &.status-succeed {
+      @extend .glyphicon-ok;
+
+      color: $alert-success-text;
+    }
+
+    &.status-waiting {
+      @extend .glyphicon-hourglass;
+
+      color: $gray;
+    }
+  }
 }

@@ -13,7 +13,8 @@
       %p= number_to_currency(project.current_funds)
     %div
       %h4= 'Status'
-      %p= project.status.capitalize
+      %p
+        %i{ class: 'status status-' + project.status }
       - if current_user == project.owner
         = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
     %div
