@@ -50,6 +50,15 @@ projects = Project.all
   )
 end
 
+projects.each do |project|
+  rand(5).times do
+    project.comments.create(
+            body: Faker::Lorem.paragraph,
+            user: User.all.sample
+    )
+  end
+end
+
 
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
