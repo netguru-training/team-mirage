@@ -40,6 +40,7 @@
       %h4= 'Owner'
       %p= project.owner.decorate.full_name
     %canvas#canvas{:height => "300", :width => "450"}
+    #placeholder
   .user-input.col-md-6
     .toggle-buttons
       = link_to 'Show Payments','#collapse', class: 'btn btn-default', id: 'payment', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
