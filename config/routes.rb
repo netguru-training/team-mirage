@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
-  root to: 'visitors#index'
+  root to: 'projects#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users, only: [:show, :edit, :update]
