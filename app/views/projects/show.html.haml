@@ -32,7 +32,8 @@
       %p= project.owner.decorate.full_name
     %canvas#canvas{:height => "300", :width => "450"}
   .user-input.col-md-6
-    .payments
+    = link_to 'Show Payments','#collapse', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
+    .payments.collapse#collapse
       %h4= 'Payments'
       - if project.payments.empty?
         %p= 'Be the first one to pay for this project!'
