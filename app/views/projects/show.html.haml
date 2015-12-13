@@ -45,10 +45,10 @@
         = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
     .comments
       %h4= 'Comments'
-      - if project.comments.empty?
+      - if comments.empty?
         %p= 'Be the first one to comment on this project!'
       - else
-        - project.comments.each do |comment|
+        - comments.each do |comment|
           = render comment
       - if user_signed_in?
         %h5= 'Add Comment'
