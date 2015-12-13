@@ -1,7 +1,16 @@
 %li= link_to 'All Projects', root_path
 - if user_signed_in?
-  %li= link_to 'Show account', user_path(current_user)
-  %li= link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+  %li
+    = link_to user_path(current_user) do
+      = 'Show account'
+      %span.glyphicon.glyphicon-user
+  %li
+    = link_to destroy_user_session_path, :method=>'delete' do
+      = 'Sign out'
+      %span.glyphion.glyphicon-log-out
 - else
-  %li= link_to 'Sign in', new_user_session_path
+  %li
+    = link_to new_user_session_path do
+      = 'Sign In'
+      %span.glyphicon.glyphicon-log-in
   %li= link_to 'Sign up', new_user_registration_path
