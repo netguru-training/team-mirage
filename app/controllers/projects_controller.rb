@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   expose(:remaining_projects)  { Project.inactive }
   expose(:projects)
   expose(:project, attributes: :projects_params)
-  expose(:comments) { project.comments.sort_by{|c| c.created_at}.reverse }
+  expose(:comments) { project.comments.sorted_by_date }
 
   def create
     project.owner = current_user
