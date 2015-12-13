@@ -40,13 +40,19 @@ admin.add_role :admin
     status: 0
   )
 end
+
 projects = Project.all
 
-20.times do
+projects.each do |p|
+  p.update(created_at: Faker::Time.between(DateTime.now-5.years, 2.day.from_now))
+end
+
+200.times do
   Payment.create!(
     value: Faker::Number.between(1,1000),
     project_id: projects.sample.id,
-    user_id: users.sample.id
+    user_id: users.sample.id,
+    created_at: Faker::Time.between(14.days.ago, 3.days.ago)
   )
 end
 
