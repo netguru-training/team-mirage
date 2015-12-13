@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to project_path(project), notice: 'Your comment was added successfully. Thank you!'
     else
-      render :new
+      redirect_to project_path(project), error: 'There\'s was wrong with your comment.'
     end
   end
 

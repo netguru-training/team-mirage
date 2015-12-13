@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def made_payment_for?(project)
+    payments.any? { |payment| payment.project == project }
+  end
+
   def self.find_for_authentication(conditions)
     user = super
     if user

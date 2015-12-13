@@ -1,3 +1,36 @@
 .comments {
   max-width: 500px;
+
+  .author {
+    .payment-status {
+      @extend .glyphicon;
+    }
+
+    &.owner {
+      color: $state-info-text;
+      font-weight: bold;
+
+      .payment-status {
+        @extend .glyphicon-hand-left
+      }
+    }
+
+    &:not(.owner) {
+      &.paid {
+        color: $alert-success-text;
+
+        .payment-status {
+          @extend .glyphicon-thumbs-up
+        }
+      }
+
+      &.did-not-pay {
+        color: $alert-danger-text;
+
+        .payment-status {
+          @extend .glyphicon-thumbs-down
+        }
+      }
+    }
+  }
 }

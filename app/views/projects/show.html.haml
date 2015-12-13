@@ -16,6 +16,9 @@
       %p= project.status.capitalize
       - if current_user == project.owner
         = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
+    %div
+      %h4= 'Owner'
+      %p= project.owner.decorate.full_name
   .user-input.col-md-6
     .payments
       %div
@@ -26,7 +29,7 @@
             %span.value= number_to_currency(payment.value)
             from
             %span.contributor= payment.user.decorate.full_name
-            %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
+            %span.date= "(#{ payment.created_at.strftime("%d/%m/%Y") })"
       - if user_signed_in? && project.active?
         = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
     .comments
@@ -36,5 +39,6 @@
       - else
         - project.comments.each do |comment|
           = render comment
-      %h5= 'Add Comment'
-      = render 'comments/form', comment: project.comments.new, project: project
+      - if user_signed_in?
+        %h5= 'Add Comment'
+        = render 'comments/form', comment: project.comments.new, project: project

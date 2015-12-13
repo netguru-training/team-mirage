@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
 
   validates :user, presence: true
   validates :project, presence: true
+  validates :body, presence: true, length: { minimum: 2 }
 end

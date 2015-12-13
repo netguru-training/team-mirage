@@ -1,3 +1,8 @@
 %div.comment
-  %h5= comment.user.decorate.full_name
+  - author_class = comment.user == comment.project.owner ? 'owner ' : ''
+  - author_class += comment.user.made_payment_for?(comment.project) ? 'paid' : 'did-not-pay'
+  %h5{ class: 'author ' + author_class }
+    = comment.user.decorate.full_name
+    %i.payment-status
+    = " on #{comment.created_at.strftime("%d/%m/%Y")}"
   %p= comment.body
