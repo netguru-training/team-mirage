@@ -28,11 +28,11 @@ class ProjectsController < ApplicationController
     daily_payments[project.setup_date.strftime('%d %b %y')] = 0
     total_payments[project.setup_date.strftime('%d %b %y')] = 0
 
-    project.payments.order(:created_at).map do |x|
-      daily_payments[x.created_at.strftime('%d %b %y')] += x.value
-      total_funds += x.value
-      total_payments[x.created_at.strftime('%d %b %y')] = total_funds
-      @hash_limit[x.created_at.strftime('%d %b %y')] = project.goal
+    project.payments.order(:created_at).map do |payment|
+      daily_payments[payment.created_at.strftime('%d %b %y')] += payment.value
+      total_funds += payment.value
+      total_payments[payment.created_at.strftime('%d %b %y')] = total_funds
+      @hash_limit[payment.created_at.strftime('%d %b %y')] = project.goal
     end
 
     @hash_limit[project.setup_date.strftime('%d %b %y')] = project.goal
