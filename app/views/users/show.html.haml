@@ -9,7 +9,7 @@
     %tr
       %td= "Total payments:"
       %td= user.payments.sum(:value)
--if user==current_user
+-if user == current_user
   = link_to 'Edit user', edit_user_path(user), class: 'btn btn-default'
 
 -if user.projects.any?
@@ -47,4 +47,4 @@
         %tr
           %td= p.name
           %td= p.description
-          %td= number_to_currency(p.payments.sum(:value))
+          %td= number_to_currency(p.payments.by(user.id).sum(:value))
