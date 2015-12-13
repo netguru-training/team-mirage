@@ -18,12 +18,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def admin?
-    has_role? :admin
-  end
-
-  def inactive?
-    has_role? :inactive
+  %i(admin regular inactive).each do |role|
+    define_method("#{role}?") do
+      has_role? role
+    end
   end
 
   def self.find_for_authentication(conditions)
