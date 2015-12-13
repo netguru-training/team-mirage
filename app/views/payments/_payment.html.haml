@@ -1,0 +1,4 @@
+%span.value= number_to_currency(payment.value)
+from
+%span.contributor= payment.user.decorate.full_name
+%span.date= "(#{ payment.created_at.strftime("%d/%m/%Y") })"

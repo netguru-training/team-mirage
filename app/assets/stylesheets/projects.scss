@@ -5,4 +5,10 @@
     text-align: center;
     text-transform: uppercase;
   }
+
+  .user-input {
+    > div {
+      padding-bottom: 30px;
+    }
+  }
 }

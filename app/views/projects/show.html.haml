@@ -21,15 +21,14 @@
       %p= project.owner.decorate.full_name
   .user-input.col-md-6
     .payments
-      %div
       %h4= 'Payments'
-      %ul
-        - project.payments.each do |payment|
-          %li
-            %span.value= number_to_currency(payment.value)
-            from
-            %span.contributor= payment.user.decorate.full_name
-            %span.date= "(#{ payment.created_at.strftime("%d/%m/%Y") })"
+      - if project.payments.empty?
+        %p= 'Be the first one to pay for this project!'
+      - else
+        %ul
+          - project.payments.each do |payment|
+            %li
+              = render payment
       - if user_signed_in? && project.active?
         = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
     .comments
