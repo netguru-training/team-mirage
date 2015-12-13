@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   scope :remaining, -> { where.not(status:  'active') }  
   belongs_to :owner, class_name: "User"
   has_many :payments
+  has_many :comments
 
   scope :active, -> { where(status: 'active') }
   scope :inactive, -> { where.not(status: 'active') }
