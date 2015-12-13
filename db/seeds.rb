@@ -18,7 +18,7 @@ users.each do |f|
   f.add_role :regular
 end
 
-admin = User.create!(
+admin = User.first_or_create!(
   first_name: "admin",
   last_name: "adminowski",
   email: "admin@admin.com",
