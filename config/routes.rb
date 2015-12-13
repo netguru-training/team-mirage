@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   namespace :admin do
-    resources :projects
     resources :users
     get '/invitations/new' => 'invitations#new'
     post '/invitations' => 'invitations#create'
