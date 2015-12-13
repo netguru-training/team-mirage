@@ -20,6 +20,7 @@
     %div
       %h4= 'Owner'
       %p= project.owner.decorate.full_name
+    %canvas#canvas{:height => "300", :width => "450"}
   .user-input.col-md-6
     .payments
       %h4= 'Payments'
@@ -43,7 +44,7 @@
         %h5= 'Add Comment'
         = render 'comments/form', comment: project.comments.new, project: project
 
-%canvas#canvas{:height => "300", :width => "450"}
+
 
 :javascript
   window.dataArray = #{raw @hash_values.to_json}
