@@ -33,10 +33,10 @@
     %canvas#canvas{:height => "300", :width => "450"}
   .user-input.col-md-6
     = render 'project_rating'
-    = link_to 'Show Payments','#collapse', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
+    = link_to 'Show Payments','#collapse', class: 'btn btn-default', id: 'payment' "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
     .payments.collapse#collapse
       = render 'project_payments'
-    = link_to 'Show Comments','#collapse_comments', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse_comments"
+    = link_to 'Show Comments','#collapse_comments', class: 'btn btn-default', id: 'comment' "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse_comments"
     .comments.collapse#collapse_comments
       = render 'project_comments'
 

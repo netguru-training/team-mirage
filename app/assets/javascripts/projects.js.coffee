@@ -3,6 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  $('#comment').click ->
+    $(this).text (i, old) ->
+      if old == 'Hide comments' then 'Show comments' else 'Hide comments'
+  $('#payment').click ->
+    $(this).text (i, old) ->
+      if old == 'Hide payments' then 'Show payments' else 'Hide payments'
+
   data = {
     labels : labelArray,
     datasets : [
