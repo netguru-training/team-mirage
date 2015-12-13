@@ -35,6 +35,9 @@ module Admin
       redirect_to admin_users_path
     end
 
+    def new_invitation
+    end
+
     private
     def user_params
       params.require(:user).permit(:email, :password, :first_name, :last_name, :occupation, :country, role_ids: [])

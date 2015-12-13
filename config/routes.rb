@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :projects
     resources :users
+    get '/invitations/new' => 'invitations#new'
+    post '/invitations' => 'invitations#create'
   end
 end
