@@ -19,6 +19,13 @@ jQuery ->
         pointColor : "rgba(151,187,205,1)",
         pointStrokeColor : "#fff",
         data : dataArray
+      },
+      {
+        fillColor : "rgba(255,255,255,0.1)",
+        strokeColor : "rgba(255,0,0,1)",
+        pointColor : "rgba(255,0,0,1)",
+        pointStrokeColor : "#fff",
+        data : limit
       }
     ]
   }

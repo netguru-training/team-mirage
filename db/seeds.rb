@@ -32,7 +32,7 @@ admin.add_role :admin
   Project.create!(
     name: Faker::Lorem.word,
     description: Faker::Lorem.sentence,
-    goal: Faker::Number.number(6),
+    goal: Faker::Number.number(4),
     current_funds: 0,
     setup_date: Faker::Time.between(DateTime.now, 2.day.from_now),
     finish_date: Faker::Time.between(3.days.from_now, 5.days.from_now),
