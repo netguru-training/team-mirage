@@ -4,6 +4,9 @@
 
 .create-user-links {
   float: right;
+  a {
+    font-weight: bold;
+  }
 }
 
 .admin-user-form {

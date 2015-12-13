@@ -1,7 +1,12 @@
-%h1
+%h3 Manage Users
+%span.glyphicon.glyphicon-user
 .create-user-links
-  = link_to "Create User", new_admin_user_path, class: 'btn btn-success'
-  = link_to "Invite User", admin_invitations_new_path, class: 'btn btn-success'
+  = link_to new_admin_user_path, class: 'btn btn-success' do
+    = "Create User"
+    %span.glyphicon.glyphicon-plus
+  = link_to admin_invitations_new_path, class: 'btn btn-success' do
+    = "Invite User"
+    %span.glyphicon.glyphicon-envelope
 - if users.any?
   = page_entries_info users
   %table.table
