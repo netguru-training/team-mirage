@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validate :cant_be_both_admin_and_inactive
+
+  def cant_be_both_admin_and_inactive
+    user_roles = roles.map(&:name)
+    if user_roles.include?('admin') && user_roles.include?('inactive')
+      errors.add(:roles, "User can't be both admin and inactive")
+    end
+  end
 
   def admin?
     has_role? :admin

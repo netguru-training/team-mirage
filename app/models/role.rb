@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  AVAILABLE_ROLES = ['regular', 'admin', 'inactive']
+  AVAILABLE_ROLES = %w(regular admin inactive)
 
   has_and_belongs_to_many :users, :join_table => :users_roles
   belongs_to :resource, :polymorphic => true
