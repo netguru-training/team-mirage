@@ -8,7 +8,7 @@
       %td= user.last_name
     %tr
       %td= "Total payments:"
-      %td= user.payments.sum(:value)
+      %td= number_to_currency(user.payments.sum(:value))
 - if current_user?(user)
   = link_to 'Edit user', edit_user_path(user), class: 'btn btn-default'
 
