@@ -58,3 +58,11 @@ projects.each do |project|
     )
   end
 end
+
+projects.first.waiting!
+
+projects.second.current_funds = projects.second.goal * 1.5
+projects.second.succeed!
+
+projects.third.current_funds = projects.third.goal / 2
+projects.third.failed!
