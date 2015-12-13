@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .row.project
   .col-xs-12
     %h2.project-name= project.name
@@ -42,3 +43,40 @@
       - if user_signed_in?
         %h5= 'Add Comment'
         = render 'comments/form', comment: project.comments.new, project: project
+=======
+%h2= project.name
+.details
+  %div
+    %h4= 'Description'
+    %p= project.description
+  %div
+    %h4= 'Goal'
+    %p= number_to_currency(project.goal)
+  %div
+    %h4= 'Currrent funds'
+    %p= number_to_currency(project.current_funds)
+  %div
+    %h4= 'Status'
+    %p= project.status.capitalize
+  %div
+    %h4= 'Payments'
+    %ul
+      - project.payments.each do |payment|
+        %li
+          %span.value= number_to_currency(payment.value)
+          from
+          %span.contributor= payment.user.decorate.full_name
+          %span.date= "(#{payment.created_at.strftime("%d/%m/%Y")})"
+    - if user_signed_in? && project.active?
+      = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
+    -if current_user==project.owner
+      = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
+
+%canvas#canvas{:height => "300", :width => "450"}
+
+
+:javascript
+  window.dataArray = #{raw @hash_values.to_json}
+  window.dataArrayAll = #{raw @hhash_values.to_json}
+  window.labelArray = #{raw @hash_labels.to_json}
+>>>>>>> Stashed changes

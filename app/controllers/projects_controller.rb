@@ -21,6 +21,19 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    daily_payments=Hash.new(0)
+    total_payments=Hash.new(0)
+    project.payments.map do |x|
+      daily_payments["#{project.setup_date.strftime('%d %b %y')}"] = 0
+      daily_payments["#{x.created_at.strftime('%d %b %y')}"] += x.value
+      total_payments[project.setup_date.day.to_s] = 0
+      total_payments[x.created_at.day.to_s] += x.value
+      total_payments[Date.today.day.to_s] = project.current_funds
+    end
+
+    @hash_labels = daily_payments.keys
+    @hash_values = daily_payments.values
+    @hhash_values = total_payments.values
   end
 
   def update

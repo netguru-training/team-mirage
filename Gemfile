@@ -23,6 +23,8 @@ gem 'kaminari'
 gem 'faker'
 gem 'country_select'
 gem 'devise_invitable'
+gem 'chart-js-rails'
+
 
 group :development do
   gem 'better_errors'
