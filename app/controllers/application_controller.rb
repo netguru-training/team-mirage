@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
+  private
   def check_if_active
     sign_out if current_user.inactive?
   end
