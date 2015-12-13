@@ -11,7 +11,7 @@
       font-weight: bold;
 
       .payment-status {
-        @extend .glyphicon-hand-left
+        @extend .glyphicon-hand-left;
       }
     }
 
@@ -20,7 +20,7 @@
         color: $alert-success-text;
 
         .payment-status {
-          @extend .glyphicon-thumbs-up
+          @extend .glyphicon-thumbs-up;
         }
       }
 
@@ -28,7 +28,7 @@
         color: $alert-danger-text;
 
         .payment-status {
-          @extend .glyphicon-thumbs-down
+          @extend .glyphicon-thumbs-down;
         }
       }
     }
