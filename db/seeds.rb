@@ -5,6 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Role::AVAILABLE_ROLES.each do |name|
+    Role.create!(name: name)
+end
+
 3.times do
   User.create!(
       first_name: Faker::Name.first_name,
@@ -48,4 +52,3 @@ end
 
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
-
