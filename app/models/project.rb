@@ -1,6 +1,4 @@
 class Project < ActiveRecord::Base
-  scope :ongoing, -> { where(status: 'active') }
-  scope :remaining, -> { where.not(status: 'active') }
   belongs_to :owner, class_name: "User"
   has_many :payments
   has_many :comments

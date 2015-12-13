@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
-  expose(:active_projects) {Project.ongoing}
-  expose(:remaining_projects) {Project.remaining}
+  expose(:active_projects) { Project.active }
+  expose(:remaining_projects)  { Project.inactive }
   expose(:projects)
   expose(:project, attributes: :projects_params)
 

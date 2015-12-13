@@ -1,31 +1,8 @@
 %h2 Active Projects
+= render 'projects_table', projects: active_projects
 
-%table.table
-  %thead
-    %tr
-      %th= 'Name'
-      %th= 'Description'
-      %th= 'Goal'
-      %th= 'Current Funds'
-      %th= 'Status'
-  %tbody
-
-    -Project.ongoing.each do |project|
-      %tr
-        = render project
 - if user_signed_in?
   =link_to "New Project", new_project_path, class:"btn btn-primary"
-%h2 Inactive Projects
 
-%table.table
-  %thead
-    %tr
-      %th= 'Name'
-      %th= 'Description'
-      %th= 'Goal'
-      %th= 'Current Funds'
-      %th= 'Status'
-  %tbody
-    -Project.remaining.all.each do |project|
-      %tr
-        = render project
+%h2 Inactive Projects
+= render 'projects_table', projects: remaining_projects

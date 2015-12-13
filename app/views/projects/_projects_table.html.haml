@@ -1,0 +1,16 @@
+- if projects.empty?
+  %p= 'Currently, there are no projects here.'
+- else
+  %table.table
+    %thead
+      %tr
+        %th= 'Name'
+        %th= 'Description'
+        %th= 'Goal'
+        %th= 'Current Funds'
+        %th= '%'
+        %th= 'Status'
+    %tbody
+      - projects.each do |project|
+        %tr
+          = render project
