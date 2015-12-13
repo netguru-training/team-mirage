@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   expose(:project, attributes: :projects_params)
   expose(:comments) { project.comments.sorted_by_date }
 
+
   def create
     project.owner = current_user
 
@@ -53,6 +54,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    @finish_date = project.finish_date.to_s.chomp(" UTC")
   end
 
   private
