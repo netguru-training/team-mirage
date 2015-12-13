@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :payments
   has_many :comments
+  has_many :ratings
 
   scope :active, -> { where(status: 'active') }
   scope :inactive, -> { where.not(status: 'active') }
