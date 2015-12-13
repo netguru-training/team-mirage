@@ -44,7 +44,7 @@ end
 projects = Project.all
 
 projects.each do |p|
-  p.update(created_at: Faker::Time.between(DateTime.now-5.years, 2.day.from_now))
+  p.update(created_at: Faker::Time.between(DateTime.now - 5.years, 2.day.from_now))
 end
 
 200.times do
@@ -67,8 +67,16 @@ end
 
 projects.first.waiting!
 
-projects.second.current_funds = projects.second.goal * 1.5
-projects.second.succeed!
+succeeded_project = projects.second
+succeeded_project.current_funds = succeeded_project.goal * 1.5
+succeeded_project.succeed!
+
+5.times do
+  succeeded_project.ratings.create!(
+    value: rand(10) + 1,
+    user: succeeded_project.payments.sample.user
+  )
+end
 
 projects.third.current_funds = projects.third.goal / 2
 projects.third.failed!
