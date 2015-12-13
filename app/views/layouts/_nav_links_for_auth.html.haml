@@ -13,4 +13,7 @@
     = link_to new_user_session_path do
       = 'Sign In'
       %span.glyphicon.glyphicon-log-in
-  %li= link_to 'Sign up', new_user_registration_path
+  %li
+    = link_to new_user_registration_path do
+      = 'Sign up'
+      %span.glyphicon.glyphicon-user
