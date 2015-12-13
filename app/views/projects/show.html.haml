@@ -44,7 +44,8 @@
               = render payment
       - if user_signed_in? && project.active?
         = link_to 'Add Payment', new_project_payment_path(project), class: 'btn btn-default'
-    .comments
+    = link_to 'Show Comments','#collapse_comments', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse_comments"
+    .comments.collapse#collapse_comments
       %h4= 'Comments'
       - if comments.empty?
         %p= 'Be the first one to comment on this project!'
