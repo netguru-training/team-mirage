@@ -35,10 +35,12 @@ class ProjectsController < ApplicationController
       @project_goal[payment.created_at.strftime('%d %b %y')] = project.goal
     end
 
+
     @project_goal[project.setup_date.strftime('%d %b %y')] = project.goal
     @daily_payments_labels = daily_payments.keys
     @daily_payments_values = daily_payments.values.map(&:to_i)
     @total_payments_values = total_payments.values.map(&:to_i)
+    @finish_date = project.finish_date.to_s.chomp(" UTC")
   end
 
   def update

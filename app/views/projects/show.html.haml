@@ -21,6 +21,13 @@
       - if current_user?(project.owner)
         = link_to 'Edit Project', edit_project_path(project), class: 'btn btn-default'
     %div
+      %h4= 'Time remaining'
+      %div#getting-started
+      :javascript
+          $('#getting-started').countdown(#{@finish_date.to_json}, function(event) {
+           $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
+          });
+    %div
       %h4= 'Owner'
       %p= project.owner.decorate.full_name
     %canvas#canvas{:height => "300", :width => "450"}
