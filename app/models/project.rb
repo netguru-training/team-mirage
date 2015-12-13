@@ -6,8 +6,6 @@ class Project < ActiveRecord::Base
   scope :active, -> { where(status: 'active') }
   scope :inactive, -> { where.not(status: 'active') }
 
-
-
   validates :owner_id, presence: true
   validates :name, presence: true
   validates :description, presence: true
