@@ -1,10 +1,17 @@
 class Rating < ActiveRecord::Base
+  MIN = 1
+  MAX = 10
+
   belongs_to :user
   belongs_to :project
 
   validates :user, presence: true
   validates :project, presence: true
-  validates :value, numericality: { only_integer: true, minimum: 1, maximum: 10 }
+  validates :value, presence: true, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: MIN,
+    less_than_or_equal_to: MAX
+  }
   validate :project_must_be_succeeded
   validate :user_must_have_contributed_to_project
 

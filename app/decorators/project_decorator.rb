@@ -7,7 +7,7 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def mean_rating
-    mean_rating = ratings.pluck(:value).sum / ratings.length.to_f
+    mean_rating = ratings.empty? ? 0 : ratings.pluck(:value).sum / ratings.length.to_f
     mean_rating.round(1)
   end
 end

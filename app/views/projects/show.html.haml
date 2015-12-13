@@ -3,7 +3,7 @@
     %h2.project-name
       = project.name
       - if project.succeed?
-        = " (#{ project.decorate.mean_rating }/10)"
+        = " (#{ project.decorate.mean_rating }/#{Rating::MAX})"
   .details.col-md-6
     %div
       %h4= 'Description'
@@ -32,6 +32,7 @@
       %p= project.owner.decorate.full_name
     %canvas#canvas{:height => "300", :width => "450"}
   .user-input.col-md-6
+    = render 'project_rating'
     = link_to 'Show Payments','#collapse', class: 'btn btn-default', "data-toggle" => "collapse", "aria-expanded"=>"false", "aria-controls"=>"collapse"
     .payments.collapse#collapse
       %h4= 'Payments'

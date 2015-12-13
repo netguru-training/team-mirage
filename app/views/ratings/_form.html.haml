@@ -1,0 +1,3 @@
+= simple_form_for rating, url: project_ratings_path(project) do |f|
+  = f.input :value, label: false, collection: Rating::MIN..Rating::MAX, as: :select, include_blank: false
+  = f.button :submit, 'Rate'
