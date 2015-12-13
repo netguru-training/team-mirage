@@ -16,3 +16,26 @@ main {
 form {
   max-width: 400px;
 }
+
+.navbar-default {
+  background-color: $btn-primary-bg;
+  color: white;
+
+  .navbar-text {
+    color: white;
+  }
+
+  .navbar-nav {
+    > li {
+      > a {
+        color: white;
+        transition: transform 0.3s;
+
+        &:hover {
+          color: white;
+          transform: rotate(5deg);
+        }
+      }
+    }
+  }
+}
